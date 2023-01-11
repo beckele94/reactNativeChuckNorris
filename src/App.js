@@ -15,7 +15,7 @@ const App = () => {
     try {
       const response = await fetch('https://api.chucknorris.io/jokes/random');
       const jsonData = await response.json();
-      setData([...data, jsonData]);
+      setData(jsonData.value);
     } catch (err) {
       console.error(err);
     }
@@ -37,11 +37,9 @@ const App = () => {
             <Text style={style.text}>Click me</Text>
           </TouchableOpacity>
         </View>
-        <FlatList
-            data={data}
-            keyExtractor={(item) => item.id}
-            renderItem={({ item }) => <Text>{item.value}</Text>}
-        />
+        <View>
+          <Text>{data}</Text>
+        </View>
       </>
   );
 };
