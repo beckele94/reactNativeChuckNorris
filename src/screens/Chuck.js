@@ -10,7 +10,7 @@ import {
 const Chuck = () => {
     const [data, setData] = useState([]);
 
-    const fetchJoke = async () => {
+    const fetchFact = async () => {
         try {
             const response = await fetch('https://api.chucknorris.io/jokes/random');
             const jsonData = await response.json();
@@ -22,22 +22,22 @@ const Chuck = () => {
 
     //affichage d'une fact au lancement
     useEffect(() => {
-        fetchJoke();
+        fetchFact();
     }, []);
     //affichage d'une fact lors de l'appui sur le bouton
     const actionButton = () => {
-        fetchJoke();
+        fetchFact();
     }
 
     return (
         <>
             <View>
-                <TouchableOpacity onPress={actionButton}>
-                    <Text style={style.text}>Click me</Text>
-                </TouchableOpacity>
+                <Text style={style.data}>{data}</Text>
             </View>
-            <View>
-                <Text>{data}</Text>
+            <View style={style.container}>
+                <TouchableOpacity style={style.button} onPress={actionButton}>
+                    <Text style={style.text}>New fact</Text>
+                </TouchableOpacity>
             </View>
         </>
     );
