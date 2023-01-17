@@ -7,11 +7,14 @@ export const style = StyleSheet.create({
         justifyContent: 'center',
     },
     button: {
+        position:'absolute',
         backgroundColor: '#4286f4',
         padding: 10,
         borderRadius: 5,
         alignItems: 'center',
         width: '50%',
+        bottom: 200,
+        left:'25%'
     },
     text: {
         color: 'white',
