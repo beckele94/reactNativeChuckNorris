@@ -20,8 +20,8 @@ function App() {
                     <Stack.Navigator>
                         <Stack.Screen name="Home" component={HomeScreen} />
                         <Stack.Screen name="Chuck" component={ChuckScreen} />
-                        <Stack.Screen name="Session" component={SessionScreen} />
-                        <Stack.Screen name="Sign" component={SignSessionScreen} />
+                        {/*<Stack.Screen name="Session" component={SessionScreen} />
+                        <Stack.Screen name="Sign" component={SignSessionScreen} />*/}
                     </Stack.Navigator>
                 </NavigationContainer>
             </>
@@ -30,7 +30,7 @@ function App() {
                 <NavigationContainer>
                     <Stack.Navigator>
                         <Stack.Screen name="SignIn" component={SignInScreen} />
-                        <Stack.Screen name="Register" component={RegisterScreen} />
+                        {/*<Stack.Screen name="Register" component={RegisterScreen} />*/}
                     </Stack.Navigator>
                 </NavigationContainer>
             </>

@@ -14,31 +14,27 @@ const SignIn = () => {
         password: "",
     })
 
-    const onChangeHandler = (event) => {
-        const {value, name} = event.target
+    const onChangeHandler = (value, name) => {
         setLogin({...login, [name]: value})
     }
     const onClickHandler = () => {
         //todo: verifier le lien
-        /*const res = fetch("http://localhost:4500/api/login", {
+        const res = fetch("http://localhost:4500/api/login", {
             method: "POST",
             body: JSON.stringify(login),
             credentials: "include",
-        })*/
+        })
     }
 
     return(
         <>
             <View>
                 <TextInput
-                    name={"email"}
                     placeholder={"email"}
-                    multiline
-                    maxLength={60}
-                    onChangeText={onChangeHandler}
+                    onChangeText={(value) => onChangeHandler(value, "email")}
                     value={login.email}
                 />
-                <Button title="login" onPress={onClickHandler()}/>
+                <Button title="login" onPress={onClickHandler}/>
             </View>
         </>
     )
