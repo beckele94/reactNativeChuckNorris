@@ -30,9 +30,15 @@ const SignIn = () => {
         <>
             <View>
                 <TextInput
-                    placeholder={"email"}
+                    placeholder={"E-mail"}
                     onChangeText={(value) => onChangeHandler(value, "email")}
                     value={login.email}
+                />
+                <TextInput
+                    placeholder={"Mot de passe"}
+                    secureTextEntry={true}
+                    onChangeText={(value) => onChangeHandler(value, "password")}
+                    value={login.password}
                 />
                 <Button title="login" onPress={onClickHandler}/>
             </View>
