@@ -6,24 +6,18 @@ import {
     TextInput,
     View,
 } from 'react-native';
-import {div} from "react-native/Libraries/Animated/AnimatedWeb";
+import {login} from "../services/students";
 
 const SignIn = () => {
-    const [login, setLogin] = useState({
-        email: "",
-        password: "",
-    })
+    const [email, setEmail] = useState()
+    const [password, setPassword] = useState()
 
-    const onChangeHandler = (value, name) => {
-        setLogin({...login, [name]: value})
-    }
-    const onClickHandler = () => {
-        //todo: verifier le lien
-        const res = fetch("http://localhost:4500/api/login", {
-            method: "POST",
-            body: JSON.stringify(login),
-            credentials: "include",
-        })
+    const onClickHandler = async () => {
+        const res = await login({
+            email,
+            password,
+        });
+        //http://10.7.18.159:4500/api/login
     }
 
     return(
@@ -31,14 +25,14 @@ const SignIn = () => {
             <View>
                 <TextInput
                     placeholder={"E-mail"}
-                    onChangeText={(value) => onChangeHandler(value, "email")}
-                    value={login.email}
+                    onChangeText={setEmail}
+                    value={email}
                 />
                 <TextInput
                     placeholder={"Mot de passe"}
                     secureTextEntry={true}
-                    onChangeText={(value) => onChangeHandler(value, "password")}
-                    value={login.password}
+                    onChangeText={setPassword}
+                    value={password}
                 />
                 <Button title="login" onPress={onClickHandler}/>
             </View>
